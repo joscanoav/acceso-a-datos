@@ -1,0 +1,16 @@
+# Ignorar archivos compilados
+*.class
+
+# Ignorar directorios de construcción
+/build/
+/dist/
+/target/
+
+# Ignorar configuraciones del IDE NetBeans
+/nbproject/private/
+/nbbuild/
+*.nbattrs
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
