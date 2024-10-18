@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package poo;
 
-/**
- *
- * @author josca
- */
-public class Persona {
+import java.io.Serializable; // Asegúrate de importar Serializable
+
+public class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     public String nombre;
-    public String apellidos; // proìedades
+    public String apellidos;
     public int edad;
-    
-    // Constructor vacío (por defecto)
+
+    // Constructor vacío
     public Persona() {
     }
 
@@ -53,3 +49,4 @@ public class Persona {
         this.edad = edad;
     }
 }
+

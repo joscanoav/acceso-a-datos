@@ -17,3 +17,5 @@ Thumbs.db
 /poo/build/
 /persistencia-ficheros/nbproject/private/
 /persistencia-ficheros/build/
+/poo/dist/
+/persistencia-ficheros/dist/
