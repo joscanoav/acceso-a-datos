@@ -30,7 +30,7 @@ public class AlmacenarPersonaFichero {
             if (file.exists()) {
                 // Si el fichero ya existe, preguntar si se desea sobrescribir o añadir datos
                 System.out.println("El fichero ya existe.");
-                System.out.print(" ¿ Deseas sobrescribirlo (S) o agregar datos al final (A)? ");
+                System.out.print("Deseas sobrescribirlo (S) o agregar datos al final (A)? ");
                 String opcion = scanner.nextLine().toUpperCase();
 
                 if (opcion.equals("S")) {

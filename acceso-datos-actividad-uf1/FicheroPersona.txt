@@ -1,0 +1,3 @@
+Jorge, Oscanoa, Lima, Peruana, 38
+Matias, Oscanoa, Lima, Peruana, 1
+Cristian, Oscanoa, Lima, Peruana, 6
