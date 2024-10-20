@@ -107,5 +107,11 @@ public class Persona implements Serializable{
         System.out.println("Nacionalidad: " + nacionalidad);
         System.out.println("Edad: " + edad);
     }
+    
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Apellido: " + apellido + ", Ciudad: " + ciudad +
+               ", Nacionalidad: " + nacionalidad + ", Edad: " + edad;
+    }
   
 }

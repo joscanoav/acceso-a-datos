@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package acceso.datos.actividad.uf1;
+
 /**
  *
  * @author josca
@@ -11,27 +12,24 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class AlmacernarPersonaBinario {
 
-/**
- * Clase principal para gestionar un menú de opciones donde se puede:
- * - Escribir personas en un fichero de texto.
- * - Leer personas de un fichero de texto.
- * - Guardar personas en un fichero binario.
- */
+
+public class LeerPersonaBinario {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            // Menú principal
+            // Menu principal
             System.out.println("Menu de opciones:");
             System.out.println("1. Escribir personas en fichero de texto");
             System.out.println("2. Leer personas desde fichero de texto");
             System.out.println("3. Guardar personas en fichero binario");
-            System.out.println("4. Salir");
+            System.out.println("4. Leer personas desde fichero binario");
+            System.out.println("5. Salir");
             System.out.print("Elige una opcion: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine(); // Consumir el salto de linea
 
             switch (opcion) {
                 case 1:
@@ -44,6 +42,9 @@ public class AlmacernarPersonaBinario {
                     guardarPersonasEnBinario();
                     break;
                 case 4:
+                    leerPersonasDesdeBinario();
+                    break;
+                case 5:
                     System.out.println("Saliendo del programa...");
                     System.exit(0);
                     break;
@@ -76,7 +77,7 @@ public class AlmacernarPersonaBinario {
                 } else if (opcion.equals("A")) {
                     escribirFichero(file, true);  // Añadir al final
                 } else {
-                    System.out.println("Opción no valida.");
+                    System.out.println("Opcion no valida.");
                 }
 
             } else {
@@ -229,12 +230,6 @@ public class AlmacernarPersonaBinario {
         reader.close();
     }
 
-
-
-    /**
-     * Método para guardar personas en un fichero binario.
-     * Se sobrescribirá cualquier dato existente.
-     */
     public static void guardarPersonasEnBinario() {
         Scanner scanner = new Scanner(System.in);
 
@@ -242,14 +237,14 @@ public class AlmacernarPersonaBinario {
         String filePath = scanner.nextLine();
         File file = new File(filePath);
 
-        System.out.println("El número máximo de personas a insertar es 3.");
+        System.out.println("El numero maximo de personas a insertar es 3.");
         int numPersonas;
         do {
-            System.out.print("¿Cuántas personas deseas insertar? (Máximo 3): ");
+            System.out.print(" Cuantas personas deseas insertar? (Maximo 3): ");
             numPersonas = scanner.nextInt();
-            scanner.nextLine();  // Consumir el salto de línea
+            scanner.nextLine();  // Consumir el salto de linea
             if (numPersonas < 1 || numPersonas > 3) {
-                System.out.println("Por favor, introduce un número entre 1 y 3.");
+                System.out.println("Por favor, introduce un numero entre 1 y 3.");
             }
         } while (numPersonas < 1 || numPersonas > 3);
 
@@ -273,7 +268,7 @@ public class AlmacernarPersonaBinario {
 
             System.out.print("Edad: ");
             int edad = scanner.nextInt();
-            scanner.nextLine();  // Consumir el salto de línea
+            scanner.nextLine();  // Consumir el salto de linea
 
             personas.add(new Persona(nombre, apellido, ciudad, nacionalidad, edad));
         }
@@ -284,6 +279,64 @@ public class AlmacernarPersonaBinario {
             System.out.println("Datos guardados correctamente en el fichero binario.");
         } catch (IOException e) {
             System.out.println("Error al guardar los datos en el fichero binario: " + e.getMessage());
+        }
+    }
+
+    // Nueva opcion para leer desde un fichero binario
+    public static void leerPersonasDesdeBinario() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduce la ruta del fichero binario (incluyendo el nombre del fichero): ");
+        String filePath = scanner.nextLine();
+        File file = new File(filePath);
+
+        if (!file.exists()) {
+            System.out.println("El fichero no existe. Asegurate de introducir la ruta correcta.");
+            return;
+        }
+
+        // Intentamos leer las personas desde el fichero binario
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            List<Persona> personas = (List<Persona>) ois.readObject();
+
+            // Submenu para leer todo el archivo o una persona especifica
+            System.out.println("Que deseas hacer?");
+            System.out.println("1. Leer todo el archivo");
+            System.out.println("2. Leer una persona especifica");
+            System.out.print("Elige una opcion: ");
+            int opcion = scanner.nextInt();
+            scanner.nextLine();  // Consumir el salto de linea
+
+            switch (opcion) {
+                case 1:
+                    // Leer todo el archivo
+                    System.out.println("Personas en el fichero:");
+                    for (Persona persona : personas) {
+                        System.out.println(persona);
+                    }
+                    break;
+                case 2:
+                    // Leer una persona especifica por nombre
+                    System.out.print("Introduce el nombre de la persona que deseas buscar: ");
+                    String nombreBuscado = scanner.nextLine();
+
+                    boolean personaEncontrada = false;
+                    for (Persona persona : personas) {
+                        if (persona.getNombre().equalsIgnoreCase(nombreBuscado)) {
+                            System.out.println(persona);
+                            personaEncontrada = true;
+                        }
+                    }
+
+                    if (!personaEncontrada) {
+                        System.out.println("No se encontro ninguna persona con el nombre indicado.");
+                    }
+                    break;
+                default:
+                    System.out.println("Opcion no valida.");
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al leer el fichero binario: " + e.getMessage());
         }
     }
 }
