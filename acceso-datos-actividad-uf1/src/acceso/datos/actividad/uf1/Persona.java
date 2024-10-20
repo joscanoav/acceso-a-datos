@@ -4,13 +4,15 @@
  */
 package acceso.datos.actividad.uf1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author josca
  * La clase Persona representa a una persona con nombre, apellido, ciudad,
  * nacionalidad y edad
  */
-public class Persona {
+public class Persona implements Serializable{
     /**
      * Propiedades de la clase (nombre, apellido,ciudad, nacionalidad y edad)
      */
