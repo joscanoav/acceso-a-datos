@@ -1,0 +1,6 @@
+Jorge, Oscanoa, Madrid, Peruana, 38
+Cristian, Oscanoa, Guadalajara, Peruana, 5
+Matias, Oscanoa, Guadalajara, Española, 1
+Daniel, Oscanoa , Lima, Peruana, 38
+Eli, Huaman, Lima, Peruana, 35
+Gerardo, Oscanoa, Huaman, Peruana, 5

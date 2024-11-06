@@ -76,7 +76,7 @@ public class AlmacernarPersonaBinario {
                 } else if (opcion.equals("A")) {
                     escribirFichero(file, true);  // Añadir al final
                 } else {
-                    System.out.println("Opción no valida.");
+                    System.out.println("Opcion no valida.");
                 }
 
             } else {
@@ -242,10 +242,10 @@ public class AlmacernarPersonaBinario {
         String filePath = scanner.nextLine();
         File file = new File(filePath);
 
-        System.out.println("El número máximo de personas a insertar es 3.");
+        System.out.println("El numero maximo de personas a insertar es 3.");
         int numPersonas;
         do {
-            System.out.print("¿Cuántas personas deseas insertar? (Máximo 3): ");
+            System.out.print("Cuantas personas deseas insertar? (Maximo 3): ");
             numPersonas = scanner.nextInt();
             scanner.nextLine();  // Consumir el salto de línea
             if (numPersonas < 1 || numPersonas > 3) {

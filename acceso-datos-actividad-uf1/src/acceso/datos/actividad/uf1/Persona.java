@@ -108,6 +108,10 @@ public class Persona implements Serializable{
         System.out.println("Edad: " + edad);
     }
     
+    /**
+     * Devuelve una representación en forma de cadena de los atributos de la persona.
+     * @return Una cadena con los datos de la persona (nombre, apellido, ciudad, nacionalidad y edad).
+     */
     @Override
     public String toString() {
         return "Nombre: " + nombre + ", Apellido: " + apellido + ", Ciudad: " + ciudad +
