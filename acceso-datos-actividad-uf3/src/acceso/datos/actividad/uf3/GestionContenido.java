@@ -37,4 +37,4 @@ public class GestionContenido extends DefaultHandler{
         car = car.replaceAll("[\\t\\n]","");
         System.out.printf("\t Caracteres: %s %n", car);
     }
-} //fin GestionContenido
+} 
