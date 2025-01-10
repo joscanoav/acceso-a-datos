@@ -85,4 +85,28 @@ public class CRUDAgenda {
     }
     
     
+    public void insertarClientes(Connection conexion,int id,String nombre,int telefono) throws SQLException {
+        String query = "INSERT INTO CLIENTES (Id, Nombre, Telefono ) VALUES (?,?,?)";
+        try (PreparedStatement stmt = conexion.prepareStatement(query)){
+            stmt.setInt(1, id);
+            stmt.setString(2,"Ana");
+            stmt.setInt(3,456132);
+            stmt.executeUpdate();
+            
+            stmt.setInt(2, id);
+            stmt.setString(2,"Luis");
+            stmt.setInt(3,456498);
+            stmt.executeUpdate();   
+        }
+    }
+    
+    public void borrarClientes(Connection conexion,int id) throws SQLException{
+        String query = "DELETE FROM Clientes Where ID=?";
+        try(PreparedStatement stmt = conexion.prepareStatement(query)){
+            stmt.setInt(1,2);
+            stmt.executeUpdate();
+        }
+    }
+    
+    
 }

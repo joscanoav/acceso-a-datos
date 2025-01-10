@@ -9,7 +9,6 @@ package agenda;
  * @author josca
  */
 
-import java.awt.BorderLayout;
 import java.sql.*;
 import java.util.*;
 
